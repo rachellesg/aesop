@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import styled from "styled-components";
+import axios from "axios";
 
 import Results from "./components/Results";
 
@@ -28,7 +28,9 @@ function App() {
 
   return (
     <AppWrapper>
-      <Results dataFieldsId={dataFieldsId} records={records} />
+      <ContainerWrapper>
+        <Results dataFieldsId={dataFieldsId} records={records} />
+      </ContainerWrapper>
     </AppWrapper>
   );
 }
@@ -36,5 +38,10 @@ function App() {
 export default App;
 
 const AppWrapper = styled.div`
-  background: black;
+  max-width: 100%;
+`;
+
+const ContainerWrapper = styled.div`
+  width: 768px;
+  margin: 0 auto;
 `;
