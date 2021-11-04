@@ -5,7 +5,7 @@ const Accordion = ({ data, cities }) => {
   const [isActive, setIsActive] = useState(false);
   return (
     <>
-      <AccordionWrapper key={cities}>
+      <AccordionWrapper>
         <div
           onClick={() => setIsActive(!isActive)}
           className="accordion-header"
@@ -26,20 +26,23 @@ const Accordion = ({ data, cities }) => {
                 offenceL3,
               } = details;
               return (
-                <div className="accordion-content-details">
+                <>
                   {city === cities ? (
-                    <>
+                    <div
+                      key={`${city}-${date}-${offenceL3}`}
+                      className="accordion-content-details"
+                    >
                       Date: {date} <br />
                       Area: {city} {postcode} <br />
                       Offence Count: {offenceCount}
                       <p>
                         {offenceL1}, {offenceL2}, {offenceL3}
                       </p>
-                    </>
+                    </div>
                   ) : (
                     ""
                   )}
-                </div>
+                </>
               );
             })}
           </div>
