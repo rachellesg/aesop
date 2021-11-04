@@ -4,11 +4,12 @@ import Data from "./Data";
 
 function Results({ dataFieldsId, records }) {
   const cities = [];
+  const offences = [];
   const storedData = [];
 
-  dataFieldsId.map((item) => {
+  dataFieldsId.forEach((item) => {
     if (item.id === "Suburb - Incident") {
-      records.map((subitem) => {
+      records.forEach((subitem) => {
         const city = subitem["Suburb - Incident"];
         const date = subitem["Reported Date"];
         const postcode = subitem["Postcode - Incident"];
@@ -26,13 +27,15 @@ function Results({ dataFieldsId, records }) {
           offenceL3: offenceL3,
         });
         if (!cities.includes(city)) return cities.push(city);
+        if (!offences.includes(offenceL2)) return offences.push(offenceL2);
+        return null;
       });
     }
   });
 
   return (
     <ResultsWrapper>
-      <Data storedData={storedData} cities={cities} />
+      <Data storedData={storedData} offences={offences} cities={cities} />
     </ResultsWrapper>
   );
 }

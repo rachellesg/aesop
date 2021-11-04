@@ -1,16 +1,42 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 import Accordion from "./Accordion";
 
-function Data({ storedData, cities }) {
+function Data({ storedData, offences, cities }) {
+  const [switchGroup, setSwitchGroup] = useState(true);
+  const toggleSwitchGroup = () => {
+    setSwitchGroup(!switchGroup);
+    console.log(switchGroup);
+  };
   return (
     <DataWrapper>
-      {cities.map((item) => {
-        const checkCity = item; // list of city from cities array
-        return (
-          <Accordion data={storedData} key={checkCity} cities={checkCity} />
-        );
-      })}
+      <button onClick={toggleSwitchGroup}>Group by L2 Offences</button>
+      {switchGroup
+        ? cities &&
+          cities.map((item) => {
+            const checkCity = item; // list of city from cities array
+            return (
+              <Accordion
+                group={switchGroup}
+                data={storedData}
+                key={checkCity}
+                header={checkCity}
+              />
+            );
+          })
+        : offences &&
+          offences.map((item) => {
+            const checkOffence = item;
+            return (
+              <Accordion
+                group={switchGroup}
+                data={storedData}
+                key={checkOffence}
+                header={checkOffence}
+              />
+            );
+          })}
     </DataWrapper>
   );
 }

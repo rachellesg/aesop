@@ -1,16 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Accordion = ({ data, cities }) => {
+const Accordion = ({ data, header, group }) => {
   const [isActive, setIsActive] = useState(false);
   const handleAccordion = () => {
     setIsActive(!isActive);
   };
+  console.log(data, header, group);
   return (
     <>
       <AccordionWrapper>
         <div onClick={handleAccordion} className="accordion-header">
-          <div className="accordion-title">{cities}</div>
+          <div className="accordion-title">{header}</div>
           <div className="accordion-icon">{isActive ? "-" : "+"}</div>
         </div>
         {isActive && (
@@ -18,6 +19,10 @@ const Accordion = ({ data, cities }) => {
             <table className="accordion-content-details" cellPadding="8">
               <thead>
                 <tr>
+                  <td width="5%" align="center">
+                    Post Code
+                  </td>
+                  <td width="10%">Suburb</td>
                   <td width="5%">Date</td>
                   <td width="5%" align="center">
                     Offence Count
@@ -27,35 +32,47 @@ const Accordion = ({ data, cities }) => {
                   <td width="25%">Offence L3</td>
                 </tr>
               </thead>
-              {data &&
-                data.map((details) => {
-                  const {
-                    city,
-                    date,
-                    postcode,
-                    offenceCount,
-                    offenceL1,
-                    offenceL2,
-                    offenceL3,
-                  } = details;
-                  return (
-                    <>
-                      {city && city === cities ? (
-                        <tbody key={`${city}-${date}-${offenceL3}`}>
-                          <tr>
+              <tbody>
+                {data &&
+                  data.map((details) => {
+                    const {
+                      city,
+                      date,
+                      postcode,
+                      offenceCount,
+                      offenceL1,
+                      offenceL2,
+                      offenceL3,
+                    } = details;
+                    return (
+                      <>
+                        {city && city === header ? (
+                          <tr key={header}>
+                            <td>{postcode}</td>
+                            <td>{city}</td>
                             <td>{date}</td>
                             <td align="center">{offenceCount}</td>
                             <td>{offenceL1}</td>
                             <td>{offenceL2}</td>
                             <td>{offenceL3}</td>
                           </tr>
-                        </tbody>
-                      ) : (
-                        ""
-                      )}
-                    </>
-                  );
-                })}
+                        ) : offenceL2 && offenceL2 === header ? (
+                          <tr key={header}>
+                            <td>{postcode}</td>
+                            <td>{city}</td>
+                            <td>{date}</td>
+                            <td align="center">{offenceCount}</td>
+                            <td>{offenceL1}</td>
+                            <td>{offenceL2}</td>
+                            <td>{offenceL3}</td>
+                          </tr>
+                        ) : (
+                          ""
+                        )}
+                      </>
+                    );
+                  })}
+              </tbody>
             </table>
           </div>
         )}
@@ -92,9 +109,6 @@ const AccordionWrapper = styled.div`
         border: 1px solid #4d605a;
         border-collapse: collapse;
       }
-    }
-    .description {
-      color: #4d605a;
     }
     .accordion-content-details {
       width: 100%;
