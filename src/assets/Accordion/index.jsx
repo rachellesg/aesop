@@ -55,12 +55,11 @@ const Accordion = ({ data, cities }) => {
 export default Accordion;
 
 const AccordionWrapper = styled.div`
-  margin-bottom: 15px;
-  background: beige;
+  margin: 25px 0;
   .accordion-header {
     width: 100%;
     font-size: 25px;
-    background: turquoise;
+    background: #e5e2d8;
     display: inline-flex;
     justify-content: space-between;
     .accordion-icon {
@@ -68,10 +67,25 @@ const AccordionWrapper = styled.div`
     }
   }
   .accordion-content {
-    padding: 20px;
     .accordion-content-details {
       width: 100%;
-      margin-bottom: 20px;
+      position: relative;
+      margin: 20px 0;
+      padding: 8px 0 10px;
+      &:last-child {
+        &:after {
+          height: 0;
+        }
+      }
+      &:after {
+        position: absolute;
+        background: #74877d;
+        content: "";
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+      }
     }
   }
 `;
