@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Accordion from "../../../assets/Accordion";
+import Accordion from "./Accordion";
 
 function Data({ storedData, cities }) {
   return (
@@ -20,4 +20,5 @@ export default Data;
 const DataWrapper = styled.div`
   justify-content: center;
   align-items: middle;
+  margin: 0 auto;
 `;

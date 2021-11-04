@@ -47,7 +47,7 @@ const AppWrapper = styled.div`
 `;
 
 const ContainerWrapper = styled.div`
-  width: 768px;
+  width: 1024px;
   margin: 50px auto;
 `;
 
@@ -55,7 +55,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 50px 0 30px;
   h1 {
     font-weight: bold;
     margin-bottom: 0;
