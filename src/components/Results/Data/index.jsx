@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Accordion from "../../../assets/Accordion";
 
 function Data({ storedData, cities }) {
-  console.log(storedData);
-
   return (
     <DataWrapper>
       {storedData.length}

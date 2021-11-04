@@ -16,7 +16,6 @@ function Results({ dataFieldsId, records }) {
         const offenceL1 = subitem["Offence Level 1 Description"];
         const offenceL2 = subitem["Offence Level 2 Description"];
         const offenceL3 = subitem["Offence Level 3 Description"];
-        if (!cities.includes(city)) return cities.push(city);
         storedData.push({
           city: city,
           date: date,
@@ -26,6 +25,8 @@ function Results({ dataFieldsId, records }) {
           offenceL2: offenceL2,
           offenceL3: offenceL3,
         });
+        if (!cities.includes(city)) return cities.push(city);
+        console.log(cities.length);
       });
     }
   });
