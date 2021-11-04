@@ -26,7 +26,6 @@ function Results({ dataFieldsId, records }) {
           offenceL3: offenceL3,
         });
         if (!cities.includes(city)) return cities.push(city);
-        console.log(cities.length);
       });
     }
   });
