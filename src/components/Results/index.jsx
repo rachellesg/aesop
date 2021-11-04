@@ -12,7 +12,6 @@ function Results({ dataFieldsId, records }) {
   const [switchGroup, setSwitchGroup] = useState(true);
   const toggleSwitchGroup = () => {
     setSwitchGroup(!switchGroup);
-    console.log(switchGroup);
   };
 
   dataFieldsId.forEach((item) => {
@@ -47,8 +46,7 @@ function Results({ dataFieldsId, records }) {
       <Data
         switchGroup={switchGroup}
         storedData={storedData}
-        offences={offences}
-        cities={cities}
+        loadHeader={switchGroup ? cities : offences}
       />
     </ResultsWrapper>
   );

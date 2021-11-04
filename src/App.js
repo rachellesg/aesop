@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios
+      await axios
         .get(apiUrl)
         .then((response) => {
           const dataFields = response.data.result.fields;

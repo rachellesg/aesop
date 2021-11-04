@@ -1,83 +1,88 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Accordion = ({ data, header, group }) => {
+const Table = ({ details }) => {
+  const {
+    header,
+    postcode,
+    city,
+    date,
+    offenceCount,
+    offenceL1,
+    offenceL2,
+    offenceL3,
+  } = details;
+  return (
+    <tr key={header}>
+      <td>{postcode}</td>
+      <td>{city}</td>
+      <td>{date}</td>
+      <td align="center">{offenceCount}</td>
+      <td>{offenceL1}</td>
+      <td>{offenceL2}</td>
+      <td>{offenceL3}</td>
+    </tr>
+  );
+};
+
+const Accordion = ({ data, header }) => {
   const [isActive, setIsActive] = useState(false);
   const handleAccordion = () => {
     setIsActive(!isActive);
   };
-  console.log(data, header, group);
   return (
-    <>
-      <AccordionWrapper>
-        <div onClick={handleAccordion} className="accordion-header">
-          <div className="accordion-title">{header}</div>
-          <div className="accordion-icon">{isActive ? "-" : "+"}</div>
+    <AccordionWrapper>
+      <div onClick={handleAccordion} className="accordion-header">
+        <div className="accordion-title">{header}</div>
+        <div className="accordion-icon">{isActive ? "-" : "+"}</div>
+      </div>
+      {isActive && (
+        <div className="accordion-content">
+          <table className="accordion-content-details" cellPadding="8">
+            <thead>
+              <tr>
+                <td width="5%" align="center">
+                  Post Code
+                </td>
+                <td width="10%">Suburb</td>
+                <td width="5%">Date</td>
+                <td width="5%" align="center">
+                  Offence Count
+                </td>
+                <td width="25%">Offence L1</td>
+                <td width="25%">Offence L2</td>
+                <td width="25%">Offence L3</td>
+              </tr>
+            </thead>
+            <tbody>
+              {data &&
+                data.map((details) => {
+                  const {
+                    city,
+                    date,
+                    postcode,
+                    offenceCount,
+                    offenceL1,
+                    offenceL2,
+                    offenceL3,
+                  } = details;
+
+                  return (
+                    <>
+                      {city && (city === header || offenceL2 === header) && (
+                        <Table
+                          details={details}
+                          key={`${city}-${date}-${offenceL3}`}
+                        />
+                      )}
+                    </>
+                  );
+                })}
+            </tbody>
+          </table>
         </div>
-        {isActive && (
-          <div className="accordion-content">
-            <table className="accordion-content-details" cellPadding="8">
-              <thead>
-                <tr>
-                  <td width="5%" align="center">
-                    Post Code
-                  </td>
-                  <td width="10%">Suburb</td>
-                  <td width="5%">Date</td>
-                  <td width="5%" align="center">
-                    Offence Count
-                  </td>
-                  <td width="25%">Offence L1</td>
-                  <td width="25%">Offence L2</td>
-                  <td width="25%">Offence L3</td>
-                </tr>
-              </thead>
-              <tbody>
-                {data &&
-                  data.map((details) => {
-                    const {
-                      city,
-                      date,
-                      postcode,
-                      offenceCount,
-                      offenceL1,
-                      offenceL2,
-                      offenceL3,
-                    } = details;
-                    return (
-                      <>
-                        {city && city === header ? (
-                          <tr key={header}>
-                            <td>{postcode}</td>
-                            <td>{city}</td>
-                            <td>{date}</td>
-                            <td align="center">{offenceCount}</td>
-                            <td>{offenceL1}</td>
-                            <td>{offenceL2}</td>
-                            <td>{offenceL3}</td>
-                          </tr>
-                        ) : offenceL2 && offenceL2 === header ? (
-                          <tr key={header}>
-                            <td>{postcode}</td>
-                            <td>{city}</td>
-                            <td>{date}</td>
-                            <td align="center">{offenceCount}</td>
-                            <td>{offenceL1}</td>
-                            <td>{offenceL2}</td>
-                            <td>{offenceL3}</td>
-                          </tr>
-                        ) : (
-                          ""
-                        )}
-                      </>
-                    );
-                  })}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </AccordionWrapper>
-    </>
+      )}
+    </AccordionWrapper>
   );
 };
 
