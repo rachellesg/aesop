@@ -3,15 +3,10 @@ import styled from "styled-components";
 
 import Accordion from "./Accordion";
 
-function Data({ storedData, offences, cities }) {
-  const [switchGroup, setSwitchGroup] = useState(true);
-  const toggleSwitchGroup = () => {
-    setSwitchGroup(!switchGroup);
-    console.log(switchGroup);
-  };
+function Data({ switchGroup, storedData, offences, cities }) {
+  console.log(switchGroup);
   return (
     <DataWrapper>
-      <button onClick={toggleSwitchGroup}>Group by L2 Offences</button>
       {switchGroup
         ? cities &&
           cities.map((item) => {

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 
 import Data from "./Data";
@@ -6,6 +8,12 @@ function Results({ dataFieldsId, records }) {
   const cities = [];
   const offences = [];
   const storedData = [];
+
+  const [switchGroup, setSwitchGroup] = useState(true);
+  const toggleSwitchGroup = () => {
+    setSwitchGroup(!switchGroup);
+    console.log(switchGroup);
+  };
 
   dataFieldsId.forEach((item) => {
     if (item.id === "Suburb - Incident") {
@@ -35,7 +43,13 @@ function Results({ dataFieldsId, records }) {
 
   return (
     <ResultsWrapper>
-      <Data storedData={storedData} offences={offences} cities={cities} />
+      <button onClick={toggleSwitchGroup}>Group by L2 Offences</button>
+      <Data
+        switchGroup={switchGroup}
+        storedData={storedData}
+        offences={offences}
+        cities={cities}
+      />
     </ResultsWrapper>
   );
 }
