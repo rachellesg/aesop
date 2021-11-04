@@ -29,9 +29,9 @@ function Results({ dataFieldsId, records }) {
           date: date,
           postcode: postcode,
           offenceCount: offenceCount,
-          offenceL1: offenceL1,
-          offenceL2: offenceL2,
-          offenceL3: offenceL3,
+          offenceLevelOne: offenceL1,
+          offenceLevelTwo: offenceL2,
+          offenceLevelThree: offenceL3,
         });
         if (!cities.includes(city)) return cities.push(city);
         if (!offences.includes(offenceL2)) return offences.push(offenceL2);

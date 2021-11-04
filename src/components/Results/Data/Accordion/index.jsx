@@ -1,29 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Table = ({ details }) => {
-  const {
-    header,
-    postcode,
-    city,
-    date,
-    offenceCount,
-    offenceL1,
-    offenceL2,
-    offenceL3,
-  } = details;
-  return (
-    <tr key={header}>
-      <td>{postcode}</td>
-      <td>{city}</td>
-      <td>{date}</td>
-      <td align="center">{offenceCount}</td>
-      <td>{offenceL1}</td>
-      <td>{offenceL2}</td>
-      <td>{offenceL3}</td>
-    </tr>
-  );
-};
+import CrimeTable from "./CrimeTable";
 
 const Accordion = ({ data, header }) => {
   const [isActive, setIsActive] = useState(false);
@@ -57,24 +35,18 @@ const Accordion = ({ data, header }) => {
             <tbody>
               {data &&
                 data.map((details) => {
-                  const {
-                    city,
-                    date,
-                    postcode,
-                    offenceCount,
-                    offenceL1,
-                    offenceL2,
-                    offenceL3,
-                  } = details;
+                  const { city, date, offenceLevelTwo, offenceLevelThree } =
+                    details;
 
                   return (
                     <>
-                      {city && (city === header || offenceL2 === header) && (
-                        <Table
-                          details={details}
-                          key={`${city}-${date}-${offenceL3}`}
-                        />
-                      )}
+                      {city &&
+                        (city === header || offenceLevelTwo === header) && (
+                          <CrimeTable
+                            details={details}
+                            key={`${city}-${date}-${offenceLevelThree}`}
+                          />
+                        )}
                     </>
                   );
                 })}
