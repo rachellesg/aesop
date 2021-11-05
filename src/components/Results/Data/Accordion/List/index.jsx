@@ -115,13 +115,15 @@ const ListDetails = styled.div`
   .level-group {
     .levelOne {
       font-size: 12px;
+      opacity: 70%;
     }
     .levelTwo {
       font-size: 15px;
     }
   }
   .levelThree {
-    font-size: 25px;
+    font-size: 20px;
+    font-weight: bold;
     text-align: right;
   }
 `;
