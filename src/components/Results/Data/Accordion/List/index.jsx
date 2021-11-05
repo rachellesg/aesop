@@ -15,7 +15,7 @@ const List = ({ data, header }) => {
             offenceLevelThree,
           } = details;
           return (
-            <>
+            <div key={`${city}-${date}-${offenceLevelThree}`}>
               {city && (city === header || offenceLevelTwo === header) && (
                 <ListContent key={`${city}-${date}-${offenceLevelThree}`}>
                   <ListDetails>
@@ -37,7 +37,7 @@ const List = ({ data, header }) => {
                   </ListHeader>
                 </ListContent>
               )}
-            </>
+            </div>
           );
         })}
     </ListWrapper>
