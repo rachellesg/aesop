@@ -10,7 +10,6 @@ Please make sure that you cover the following as part of this exercise:
 - Styling
 
 Optional task
-
 Implement a button to make the list to be regrouped by ‘Offence Level 2 Description’ on click.
 
 ## Getting Started
