@@ -34,7 +34,9 @@ Implement a button to make the list to be regrouped by ‘Offence Level 2 Descri
 
 This was my first time working with an API that did not have camelCase keys so initially I was a little stumped. I then decided to trawl through the json file and realized there was a fields array at the bottom that I could use to match and retrieve the main records.
 
-I first sorted the "Suburb - Incidents" into an array of it's own and decided that the data stored will be the headers for the accordion titles. (Eg: "Adelaide", "Adelaide Airport") Afterwards I filtered the data so that if the content's "Suburb - Incidents" key matched the corresponding header, the content will only then be showed.
+I first sorted the "Suburb - Incidents" into an array of it's own and decided that the data stored will be the headers for the accordion titles. (Eg: "Adelaide", "Adelaide Airport")
+
+Afterwards I filtered the data so that if the content's "Suburb - Incidents" key matched the corresponding header, the content will only then be showed.
 
 The retrieved records data were first rendered into a table, but I felt like the data was not presented in the correct way so I changed to a listing view instead.
 
