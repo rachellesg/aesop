@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import styled from "styled-components";
 
+import Button from "../../assets/Button";
 import Data from "./Data";
 
 function Results({ dataFieldsId, records }) {
@@ -42,7 +43,9 @@ function Results({ dataFieldsId, records }) {
 
   return (
     <ResultsWrapper>
-      <button onClick={toggleSwitchGroup}>Group by L2 Offences</button>
+      <Button onClick={toggleSwitchGroup}>
+        Group by {switchGroup ? "L2 Offences" : "Suburbs"}{" "}
+      </Button>
       <Data
         switchGroup={switchGroup}
         storedData={storedData}
