@@ -75,6 +75,11 @@ const ListHeader = styled.div`
       top: 0;
       right: -70px;
     }
+    &:last-child {
+      &:after {
+        width: 0;
+      }
+    }
   }
   &:before {
     height: 1px;

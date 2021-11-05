@@ -31,8 +31,12 @@ function App() {
       <ContainerWrapper>
         <HeaderWrapper>
           <div className="half-circle" />
-          <h1>Meow miao french ciao</h1>
-          <h2>Toilet paper attack claws fluff everywhere</h2>
+          <h1>Lorem ipsum fru fru</h1>
+          <h2>
+            Dolor consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation
+          </h2>
         </HeaderWrapper>
         <Results dataFieldsId={dataFieldsId} records={records} />
       </ContainerWrapper>
@@ -54,6 +58,7 @@ const ContainerWrapper = styled.div`
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
+  text-align: center;
   flex-direction: column;
   padding: 50px 0 30px;
   h1 {

@@ -10,6 +10,7 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   font-family: "Work Sans", Arial, sans-serif;
+  font-size: 16px;
   &:hover {
     background: #bf9a5e;
   }

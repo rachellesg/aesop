@@ -43,7 +43,7 @@ function Results({ dataFieldsId, records }) {
 
   return (
     <ResultsWrapper>
-      <Button onClick={toggleSwitchGroup}>
+      <Button className="toggle-button" onClick={toggleSwitchGroup}>
         Group by {switchGroup ? "L2 Offences" : "Suburbs"}
       </Button>
       <Data
@@ -60,4 +60,8 @@ export default Results;
 const ResultsWrapper = styled.div`
   justify-content: center;
   align-items: middle;
+  .toggle-button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 `;
