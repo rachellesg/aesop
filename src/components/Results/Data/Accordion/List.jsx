@@ -26,12 +26,13 @@ const List = ({ data, header }) => {
                     <div className="levelThree">{offenceLevelThree}</div>
                   </ListDetails>
                   <ListHeader>
+                    <div className="date">Date: {date}</div>
                     <div className="count">
                       Count: <span className="number">{offenceCount}</span>
                     </div>
-                    <div className="date">Date: {date}</div>
+                    <div className="postcode">Postcode: {postcode}</div>
                     <div className="place">
-                      Suburb: {city}, {postcode}
+                      Suburb: <span className="city-post">{city}</span>
                     </div>
                   </ListHeader>
                 </ListContent>
@@ -63,6 +64,18 @@ const ListHeader = styled.div`
   position: relative;
   margin-top: 20px;
   padding-top: 20px;
+  > div {
+    position: relative;
+    &:after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 1px;
+      background: #4d605a;
+      top: 0;
+      right: -70px;
+    }
+  }
   &:before {
     height: 1px;
     width: 100%;
@@ -72,16 +85,21 @@ const ListHeader = styled.div`
     top: 0;
     left: 0;
   }
+  .count {
+    font-size: 15px;
+    .number {
+      background: #e1d0b5d6;
+      padding: 4px 10px;
+      border-radius: 50%;
+    }
+  }
   .place {
     display: inline-flex;
-    background: #4d605a;
-    color: #ffffff;
-    padding: 0 9px;
-  }
-  .number {
-    background: #e1d0b5d6;
-    padding: 4px 10px;
-    border-radius: 50%;
+    .city-post {
+      background: #4d605a;
+      color: #ffffff;
+      padding: 0 9px;
+    }
   }
 `;
 const ListDetails = styled.div`
@@ -99,5 +117,6 @@ const ListDetails = styled.div`
   }
   .levelThree {
     font-size: 25px;
+    text-align: right;
   }
 `;
