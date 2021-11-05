@@ -1,5 +1,18 @@
 # Aesop Test
 
+Requirement Using the endpoint here, build a react application to display a list of records grouped by suburbs using the accordion UI, which expands and contracts on click.
+
+Commit your code to a Github repository as you develop, so we can see how you progressed.
+
+Please make sure that you cover the following as part of this exercise:
+
+- Unit testing
+- Styling
+
+Optional task
+
+Implement a button to make the list to be regrouped by ‘Offence Level 2 Description’ on click.
+
 ## Getting Started
 
 ### Prerequisites
