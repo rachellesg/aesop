@@ -44,7 +44,7 @@ function Results({ dataFieldsId, records }) {
   return (
     <ResultsWrapper>
       <Button onClick={toggleSwitchGroup}>
-        Group by {switchGroup ? "L2 Offences" : "Suburbs"}{" "}
+        Group by {switchGroup ? "L2 Offences" : "Suburbs"}
       </Button>
       <Data
         switchGroup={switchGroup}
